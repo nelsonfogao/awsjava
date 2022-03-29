@@ -22,7 +22,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private String telefone;
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
 	@JoinColumn(name = "idendereco")	
 	private Endereco endereco;
 
@@ -79,4 +79,5 @@ public class Usuario {
 	public Endereco getEndereco() {
 		return endereco;
 	}
+	
 }
